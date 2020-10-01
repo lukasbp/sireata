@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Departamento;
+import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
 
-public class DepartamentoDAO {
+public class DepartamentoDAO implements daoEssentials<Departamento>{
 
 	public Departamento buscarPorId(int id) throws SQLException{
 		Connection conn = null;
