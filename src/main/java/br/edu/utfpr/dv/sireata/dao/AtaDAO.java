@@ -12,8 +12,9 @@ import java.util.List;
 import br.edu.utfpr.dv.sireata.model.Ata;
 import br.edu.utfpr.dv.sireata.model.Ata.TipoAta;
 import br.edu.utfpr.dv.sireata.util.DateUtils;
+import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
 
-public class AtaDAO {
+public class AtaDAO implements daoEssentials<Ata>{
 	
 	public Ata buscarPorId(int id) throws SQLException{
 		Connection conn = null;
