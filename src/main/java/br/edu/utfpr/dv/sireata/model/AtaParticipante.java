@@ -1,13 +1,27 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name= "ataparticipantes")
 public class AtaParticipante {
-	
+
+	@Id
+	@Column(name = "idataparticipante")
 	private int idAtaParticipante;
+	@ManyToOne
+	@JoinColumn(name = "idata", referencedColumnName = "idata", foreignKey = @ForeignKey(name = "fk_ataparticipantes_ata"), nullable = false)
 	private Ata ata;
+	@ManyToOne
+	@JoinColumn(name = "idparticipante", referencedColumnName = "idparticipante", foreignKey = @ForeignKey(name = "fk_ataparticipantes_usuarios"), nullable = false)
 	private Usuario participante;
+	@Column(name = "presente")
 	private boolean presente;
+	@Column(name = "motivo")
 	private String motivo;
+	@Column(name = "designacao")
 	private String designacao;
+	@Column(name = "membro")
 	private boolean membro;
 	
 	public AtaParticipante(){

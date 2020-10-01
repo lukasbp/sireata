@@ -7,6 +7,10 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.util.DateUtils;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name= "atas")
 public class Ata {
 	
 	public enum TipoAta{
@@ -42,25 +46,47 @@ public class Ata {
 			}
 		}
 	}
-	
+	@Id
+	@Column(name = "idata")
 	private int idAta;
+	@ManyToOne
+	@JoinColumn(name = "idorgao", referencedColumnName = "idorgao", foreignKey = @ForeignKey(name = "fk_ata_orgao"), nullable = false)
 	private Orgao orgao;
+	@ManyToOne
+	@JoinColumn(name = "idpresidente", referencedColumnName = "idusuario", foreignKey = @ForeignKey(name = "fk_ata_presidente_idx"), nullable = false)
 	private Usuario presidente;
+	@ManyToOne
+	@JoinColumn(name = "idsecretario", referencedColumnName = "idusuario", foreignKey = @ForeignKey(name = "fk_ata_secretario_idx"), nullable = false)
 	private Usuario secretario;
+	@Column(name = "tipo")
 	private TipoAta tipo;
+	@Column(name = "numero")
 	private int numero;
+	@Column(name = "data")
 	private Date data;
+	@Column(name = "local")
 	private String local;
+	@Column(name = "localCompleto")
 	private String localCompleto;
+	@Column(name = "dataLimiteComentarios")
 	private Date dataLimiteComentarios;
+	@Column(name = "consideracoesIniciais")
 	private String consideracoesIniciais;
+	@Column(name = "aceitarComentarios")
 	private boolean aceitarComentarios;
+	@Column(name = "audio")
 	private byte[] audio;
+	@Column(name = "publicada")
 	private boolean publicada;
+	@Column(name = "dataPublicacao")
 	private Date dataPublicacao;
+	@Column(name = "documento")
 	private byte[] documento;
+	@OneToMany(mappedBy = "pautas")
 	private List<Pauta> pauta;
+	@OneToMany(mappedBy = "ataparticipantes")
 	private List<AtaParticipante> participantes;
+	@OneToMany(mappedBy = "anexo")
 	private List<Anexo> anexos;
 	
 	public Ata(){

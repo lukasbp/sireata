@@ -1,14 +1,30 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
-	
+
+	@Id
+	@Column(name = "idusuario")
 	private int idUsuario;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "login")
 	private String login;
+	@Column(name = "senha")
 	private String senha;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "externo")
 	private boolean externo;
+	@Column(name = "ativo")
 	private boolean ativo;
+	@Column(name = "administrador")
 	private boolean administrador;
 
 	public Usuario(){

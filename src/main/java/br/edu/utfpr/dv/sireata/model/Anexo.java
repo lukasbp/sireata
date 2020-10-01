@@ -1,12 +1,24 @@
 package br.edu.utfpr.dv.sireata.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name= "anexos")
 public class Anexo {
-	
+
+	@Column(name= "idanexo")
 	private int idAnexo;
+	@ManyToOne
+	@JoinColumn(name = "idata", referencedColumnName = "idata", foreignKey = @ForeignKey(name = "fk_anexos_ata"), nullable = false)
 	private Ata ata;
+	@Column(name= "descricao")
 	private int ordem;
+	@Column(name= "ordem")
 	private String descricao;
+	@Column(name= "arquivo")
 	private byte[] arquivo;
+
 	
 	public Anexo() {
 		this.setIdAnexo(0);

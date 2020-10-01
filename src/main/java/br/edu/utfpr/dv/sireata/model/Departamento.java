@@ -1,13 +1,26 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "departamentos")
 public class Departamento {
-	
+
+	@Id
+	@Column(name = "idDepartamento")
 	private int idDepartamento;
+	@ManyToOne
+	@JoinColumn(name = "idcampus", referencedColumnName = "idcampus", foreignKey = @ForeignKey(name = "fk_departamento_campus"), nullable = false)
 	private Campus campus;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "nomeCompleto")
 	private String nomeCompleto;
+	@Column(name = "logo")
 	private byte[] logo;
+	@Column(name = "ativo")
 	private boolean ativo;
+	@Column(name = "site")
 	private String site;
 	
 	public Departamento(){

@@ -1,18 +1,34 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "orgaos")
 public class Orgao {
-	
+
+	@Id
+	@Column(name = "idorgao")
 	private int idOrgao;
+	@ManyToOne
+	@JoinColumn(name = "iddepartamento", referencedColumnName = "iddepartamento", foreignKey = @ForeignKey(name = "fk_orgao_departamento"), nullable = false)
 	private Departamento departamento;
+	@ManyToOne
+	@JoinColumn(name = "idpresidente", referencedColumnName = "idusuario", foreignKey = @ForeignKey(name = "fk_orgao_presidente"), nullable = false)
 	private Usuario presidente;
+	@ManyToOne
+	@JoinColumn(name = "idsecretario", referencedColumnName = "idusuario", foreignKey = @ForeignKey(name = "fk_orgao_secretario"), nullable = false)
 	private Usuario secretario;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "nomeCompleto")
 	private String nomeCompleto;
+	@Column(name = "designacaoPresidente")
 	private String designacaoPresidente;
+	@Column(name = "ativo")
 	private boolean ativo;
+	@OneToMany(mappedBy = "membros")
 	private List<OrgaoMembro> membros;
 
 	public Orgao(){

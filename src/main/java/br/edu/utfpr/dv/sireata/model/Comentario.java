@@ -1,5 +1,9 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "comentarios")
 public class Comentario {
 	
 	public enum SituacaoComentario{
@@ -37,13 +41,23 @@ public class Comentario {
 			}
 		}
 	}
-	
+
+	@Id
+	@Column(name = "idComentario")
 	private int idComentario;
+	@ManyToOne
+	@JoinColumn(name = "idpauta", referencedColumnName = "idpauta", foreignKey = @ForeignKey(name = "fk_comentario_pauta"), nullable = false)
 	private Pauta pauta;
+	@ManyToOne
+	@JoinColumn(name = "idusuario", referencedColumnName = "idusuario", foreignKey = @ForeignKey(name = "fk_comentario_usuario"), nullable = false)
 	private Usuario usuario;
+	@Column(name = "situacao")
 	private SituacaoComentario situacao;
+	@Column(name = "comentarios")
 	private String comentarios;
+	@Column(name = "situacaoComentarios")
 	private SituacaoComentario situacaoComentarios;
+	@Column(name = "motivo")
 	private String motivo;
 	
 	public Comentario(){

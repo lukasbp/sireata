@@ -1,11 +1,22 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "pauta")
 public class Pauta {
-	
+
+	@Id
+	@Column(name = "idpauta")
 	private int idPauta;
+	@ManyToOne
+	@JoinColumn(name = "idata", referencedColumnName = "idata", foreignKey = @ForeignKey(name = "fk_pauta_ata"), nullable = false)
 	private Ata ata;
+	@Column(name = "ordem")
 	private int ordem;
+	@Column(name = "titulo")
 	private String titulo;
+	@Column(name = "descricao")
 	private String descricao;
 	
 	public Pauta(){

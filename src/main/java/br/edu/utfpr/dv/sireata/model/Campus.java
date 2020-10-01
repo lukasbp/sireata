@@ -1,12 +1,26 @@
 package br.edu.utfpr.dv.sireata.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "campus")
 public class Campus {
-	
+
+	@Id
+	@Column(name = "idacampus")
 	private int idCampus;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "endereco")
 	private String endereco;
+	@Column(name = "logo")
 	private byte[] logo;
+	@Column(name = "ativo")
 	private boolean ativo;
+	@Column(name = "site")
 	private String site;
 	
 	public Campus(){
