@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.AtaParticipante;
+import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
 
-public class AtaParticipanteDAO {
+public class AtaParticipanteDAO implements daoEssentials<AtaParticipante>{
 	
 	public AtaParticipante buscarPorId(int id) throws SQLException{
 		Connection conn = null;
