@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Anexo;
+import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
 
-public class AnexoDAO {
+public class AnexoDAO implements daoEssentials<Anexo>{
 	
 	public Anexo buscarPorId(int id) throws SQLException{
 		Connection conn = null;
