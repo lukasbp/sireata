@@ -12,7 +12,7 @@ import br.edu.utfpr.dv.sireata.model.Orgao;
 import br.edu.utfpr.dv.sireata.model.OrgaoMembro;
 import br.edu.utfpr.dv.sireata.model.Usuario;
 import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
-
+//f
 public class OrgaoDAO implements daoEssentials<Departamento>{
 	
 	public Orgao buscarPorId(int id) throws SQLException{
