@@ -3,6 +3,9 @@ package br.edu.utfpr.dv.sireata.model;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+
+import static groovy.util.GroovyTestCase.assertEquals;
 
 class DepartamentoTest {
 
