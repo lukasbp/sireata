@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Usuario;
+import br.edu.utfpr.dv.sireata.dao.Strategy.daoEssentials;
 
-public class UsuarioDAO {
+public class UsuarioDAO implements daoEssentials<Usuario>{
 	
 	public Usuario buscarPorLogin(String login) throws SQLException{
 		Connection conn = null;
